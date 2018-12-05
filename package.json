@@ -4,7 +4,7 @@
   "description": "Drag-and-drop sortable component for nested data and hierarchies",
   "scripts": {
     "prebuild": "npm run lint",
-    "build": "npm run clean && NODE_ENV=rollup rollup -c",
+    "build": "npm run clean && cross-env NODE_ENV=rollup rollup -c",
     "build:storybook": "npm run clean:storybook && build-storybook -o build",
     "clean": "rimraf dist",
     "clean:storybook": "rimraf build",
@@ -14,7 +14,7 @@
     "release": "standard-version",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
-    "storybook": "start-storybook -p ${PORT:-3001} -h 0.0.0.0",
+    "storybook": "start-storybook -p 3001 -h localhost",
     "deploy": "gh-pages -d build"
   },
   "main": "dist/index.cjs.js",
@@ -63,6 +63,7 @@
   ],
   "dependencies": {
     "lodash.isequal": "^4.5.0",
+    "lodash.throttle": "^4.1.1",
     "prop-types": "^15.6.1",
     "react-dnd": "3.0.2",
     "react-dnd-html5-backend": "3.0.2",
