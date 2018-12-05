@@ -6,8 +6,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var reactVirtualized = require('react-virtualized');
 var isEqual = _interopDefault(require('lodash.isequal'));
-var DragDropContext = require('react-dnd/lib/DragDropContext');
-var DragDropContext__default = _interopDefault(DragDropContext);
+var DragDropContext = _interopDefault(require('react-dnd/lib/DragDropContext'));
 var React = require('react');
 var React__default = _interopDefault(React);
 var PropTypes = _interopDefault(require('prop-types'));
@@ -735,7 +734,7 @@ function createScrollingComponent(WrappedComponent) {
   var ScrollingComponent = createScrollingComponent(WrappedComponent);
   return function (props) {
     return _react2.default.createElement(
-      DragDropContext__default.Consumer,
+      DragDropContext.Consumer,
       null,
       function (_ref4) {
         var dragDropManager = _ref4.dragDropManager;
@@ -3870,12 +3869,7 @@ ReactSortableTree.defaultProps = {
 polyfill$1(ReactSortableTree);
 
 var SortableTreeWithoutDndContext = function SortableTreeWithoutDndContext(props) {
-  return React__default.createElement(DragDropContext.Consumer, null, function (_ref17) {
-    var dragDropManager = _ref17.dragDropManager;
-    return dragDropManager === undefined ? null : React__default.createElement(ReactSortableTree, _extends({}, props, {
-      dragDropManager: dragDropManager
-    }));
-  });
+  return React__default.createElement(ReactSortableTree, props);
 }; // Export the tree component without the react-dnd DragDropContext,
 var SortableTree = DndManager.wrapRoot(SortableTreeWithoutDndContext);
 

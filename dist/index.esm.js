@@ -1,6 +1,6 @@
 import { AutoSizer, List } from 'react-virtualized';
 import isEqual from 'lodash.isequal';
-import DragDropContext, { Consumer } from 'react-dnd/lib/DragDropContext';
+import DragDropContext from 'react-dnd/lib/DragDropContext';
 import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext as DragDropContext$1, DragSource, DropTarget } from 'react-dnd';
@@ -3861,12 +3861,7 @@ ReactSortableTree.defaultProps = {
 polyfill$1(ReactSortableTree);
 
 var SortableTreeWithoutDndContext = function SortableTreeWithoutDndContext(props) {
-  return React.createElement(Consumer, null, function (_ref17) {
-    var dragDropManager = _ref17.dragDropManager;
-    return dragDropManager === undefined ? null : React.createElement(ReactSortableTree, _extends({}, props, {
-      dragDropManager: dragDropManager
-    }));
-  });
+  return React.createElement(ReactSortableTree, props);
 }; // Export the tree component without the react-dnd DragDropContext,
 var SortableTree = DndManager.wrapRoot(SortableTreeWithoutDndContext);
 
