@@ -2793,7 +2793,7 @@ function () {
             minimumTreeIndex: dropTargetProps.listIndex,
             depth: targetDepth
           });
-        }, 100),
+        }, 50),
         canDrop: this.canDrop.bind(this)
       };
 
