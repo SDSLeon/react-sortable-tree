@@ -252,7 +252,7 @@ export default class DndManager {
           minimumTreeIndex: dropTargetProps.listIndex,
           depth: targetDepth,
         });
-      }, 50),
+      }, 100),
 
       canDrop: this.canDrop.bind(this),
     };

@@ -2661,7 +2661,7 @@ var DndManager = function () {
             minimumTreeIndex: dropTargetProps.listIndex,
             depth: targetDepth
           });
-        }, 50),
+        }, 100),
 
         canDrop: this.canDrop.bind(this)
       };
