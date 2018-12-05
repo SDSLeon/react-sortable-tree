@@ -26,9 +26,9 @@ export default {
     'react-dnd/lib/DragDropContext',
     'prop-types',
     'react-dnd-html5-backend',
-    'react-dnd-scrollzone',
     'react-virtualized',
     'lodash.isequal',
+    'lodash.throttle'
   ],
   plugins: [
     nodeResolve(),
