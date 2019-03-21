@@ -5,6 +5,7 @@ import {
 } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { findDOMNode } from 'react-dom';
+import throttle from 'lodash.throttle';
 import { getDepth } from './tree-data-utils';
 import { memoizedInsertNode } from './memoized-tree-data-utils';
 
@@ -224,13 +225,16 @@ export default class DndManager {
         return result;
       },
 
-      hover: (dropTargetProps, monitor, component) => {
+      hover: throttle((dropTargetProps, monitor, component) => {
+        const monitorItem = monitor.getItem();
+        if (!monitorItem) return;
+
         const targetDepth = this.getTargetDepth(
           dropTargetProps,
           monitor,
           component
         );
-        const draggedNode = monitor.getItem().node;
+        const draggedNode = monitorItem.node;
         const needsRedraw =
           // Redraw if hovered above different nodes
           dropTargetProps.node !== draggedNode ||
@@ -247,7 +251,7 @@ export default class DndManager {
           minimumTreeIndex: dropTargetProps.listIndex,
           depth: targetDepth,
         });
-      },
+      }, 125),
 
       canDrop: this.canDrop.bind(this),
     };

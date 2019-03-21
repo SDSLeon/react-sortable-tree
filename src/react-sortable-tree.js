@@ -770,7 +770,7 @@ class ReactSortableTree extends Component {
 }
 
 ReactSortableTree.propTypes = {
-  dragDropManager: PropTypes.shape({}).isRequired,
+  dragDropManager: PropTypes.shape({ getMonitor: PropTypes.func }).isRequired,
 
   // Tree data in the following format:
   // [{title: 'main', subtitle: 'sub'}, { title: 'value2', expanded: true, children: [{ title: 'value3') }] }]
